@@ -98,10 +98,12 @@ void SolveRatChol(const MatrixD *A, MatrixD *b){ //Matrix A und Vektor b sollen 
         //Teilen jeden b-Eintrag durch den jw. Diagonaleintrag von D
         b->eintraege[i][0] /= LD.eintraege[i][i];
     }
-
+    printf("Test1\n");
     /*Lösen (L^T)x=z*/
     for(int i = (int)(LD.z)-1; i>=0 ; i--) { //Äußere Schleife, iteriert über Zeilen
         double sum4 = 0;
+        printf("Test2\n");
+
         for(int j = (int)(LD.s); j>i ; j--) { /*Innere Schleife, iteriert über Spalten
             (Beginnend erst nach dem jw. Diagonalelement) */
             sum4 += LD.eintraege[j][i] * b->eintraege[j][0];
